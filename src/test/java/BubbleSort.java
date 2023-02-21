@@ -17,8 +17,33 @@ public class BubbleSort {
     @Test
     public void test(){
         int[] nums = {5,9,7,4,1,3,2,8};
-        int[] bubble = bubble_v2(nums);
+        int[] bubble = bubble_test(nums);
     }
+
+    public int[] bubble_test(int[] nums) {
+        int n = nums.length -1;
+        for (int j = 0; j < nums.length - 1; j++) {
+            int last = 0;
+            for (int i = 0; i < n; i++) {
+                System.out.println("开始交换：" + i);
+                if (nums[i] > nums[i + 1]) {
+                    int temp = nums[i];
+                    nums[i] = nums[i + 1];
+                    nums[i + 1] = temp;
+                    last = i;
+                }
+            }
+            n = last;
+            System.out.println("循环次数：" + j + Arrays.toString(nums));
+            if (n == 0) {
+                break;
+            }
+        }
+
+        return nums;
+    }
+
+
 
     public int[] bubble_v2(int[] nums) {
         int n = nums.length -1;
